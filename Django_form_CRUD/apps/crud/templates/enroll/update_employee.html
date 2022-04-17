@@ -1,0 +1,22 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+ <div class="row">
+  <div class="col-sm-8 offset-2">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+   <h4 class="alert alert-info">Update Student Information</h4>
+   <form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-success" value="Update">
+    <a href="{% url 'addandshow'%}" class="btn btn-info">Back to Home</a>
+   </form>
+  </div>
+ </div>
+{% endblock content %}
